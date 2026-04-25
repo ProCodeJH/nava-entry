@@ -1,0 +1,1032 @@
+{
+  "total": 146,
+  "blocks": [
+    {
+      "category": "brush",
+      "name": "brush_stamp",
+      "py": [
+        "Entry.stamp()"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "start_drawing",
+      "py": [
+        "Entry.start_drawing()"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "stop_drawing",
+      "py": [
+        "Entry.stop_drawing()"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "set_color",
+      "py": [
+        "Entry.set_brush_color_to(%1)"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "set_random_color",
+      "py": [
+        "Entry.set_brush_color_to_random()"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "change_thickness",
+      "py": [
+        "Entry.add_brush_size(%1)"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "set_thickness",
+      "py": [
+        "Entry.set_brush_size(%1)"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "change_brush_transparency",
+      "py": [
+        "Entry.add_brush_transparency(%1)"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "set_brush_tranparency",
+      "py": [
+        "Entry.set_brush_transparency(%1)"
+      ]
+    },
+    {
+      "category": "brush",
+      "name": "brush_erase_all",
+      "py": [
+        "Entry.clear_drawing()"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "calc_basic",
+      "py": [
+        "(%1 %2 %3)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "calc_rand",
+      "py": [
+        "random.randint(%2, %4)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "coordinate_mouse",
+      "py": [
+        "Entry.value_of_mouse_pointer(%2)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "coordinate_object",
+      "py": [
+        "Entry.value_of_object(%2, %4)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "quotient_and_mod",
+      "py": [
+        "(%2 %6 %4)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "calc_operation",
+      "py": [
+        "(%2 ** 2)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "get_project_timer_value",
+      "py": [
+        "Entry.value_of_timer()"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "choose_project_timer_action",
+      "py": [
+        "Entry.timer(%2)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "set_visible_project_timer",
+      "py": [
+        "Entry.timer_view(%2)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "get_date",
+      "py": [
+        "Entry.value_of_current_time(%2)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "distance_something",
+      "py": [
+        "Entry.value_of_distance_to(%2)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "get_user_name",
+      "py": [
+        "Entry.value_of_username()"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "get_nickname",
+      "py": [
+        "Entry.value_of_nickname()"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "length_of_string",
+      "py": [
+        "len(%2)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "combine_something",
+      "py": [
+        "(%2 + %4)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "index_of_string",
+      "py": [
+        "%2.find(%4)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "replace_string",
+      "py": [
+        "%2.replace(%4, %6)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "change_string_case",
+      "py": [
+        "%2.upper()"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "get_block_count",
+      "py": [
+        "Entry.get_block_count(%1)"
+      ]
+    },
+    {
+      "category": "calc",
+      "name": "get_boolean_value",
+      "py": [
+        "Entry.value_of_username()"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "wait_second",
+      "py": [
+        "Entry.wait_for_sec(%1)"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "repeat_basic",
+      "py": [
+        "for i in range(%1):\\n$1"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "repeat_inf",
+      "py": [
+        "while True:\\n$1"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "repeat_while_true",
+      "py": [
+        "while %1 %2:\\n$1"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "stop_repeat",
+      "py": [
+        "break"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "continue_repeat",
+      "py": [
+        "continue"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "_if",
+      "py": [
+        "if %1:\\n$1"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "if_else",
+      "py": [
+        "if %1:\\n$1\\nelse:\\n$2"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "wait_until_true",
+      "py": [
+        "Entry.wait_until(%1)"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "stop_object",
+      "py": [
+        "Entry.stop_code(%1)"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "restart_project",
+      "py": [
+        "Entry.start_again()"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "when_clone_start",
+      "py": [
+        "def when_make_clone():"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "create_clone",
+      "py": [
+        "Entry.make_clone_of(%1)"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "delete_clone",
+      "py": [
+        "Entry.remove_this_clone()"
+      ]
+    },
+    {
+      "category": "flow",
+      "name": "remove_all_clones",
+      "py": [
+        "Entry.remove_all_clone()"
+      ]
+    },
+    {
+      "category": "func",
+      "name": "set_func_variable",
+      "py": [
+        "%1 = %2"
+      ]
+    },
+    {
+      "category": "func",
+      "name": "function_create_value",
+      "py": [
+        "%1"
+      ]
+    },
+    {
+      "category": "func",
+      "name": "function_field_label",
+      "py": [
+        "name"
+      ]
+    },
+    {
+      "category": "func",
+      "name": "function_field_string",
+      "py": [
+        "value"
+      ]
+    },
+    {
+      "category": "func",
+      "name": "function_field_boolean",
+      "py": [
+        "boolean"
+      ]
+    },
+    {
+      "category": "func",
+      "name": "function_create",
+      "py": [
+        "%1"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "is_clicked",
+      "py": [
+        "Entry.is_mouse_clicked()"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "is_press_some_key",
+      "py": [
+        "Entry.is_key_pressed(%1)"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "reach_something",
+      "py": [
+        "Entry.is_touched(%2)"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "boolean_basic_operator",
+      "py": [
+        "(%1 %2 %3)"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "boolean_and_or",
+      "py": [
+        "(%1 %2 %3)"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "boolean_not",
+      "py": [
+        "not (%2)"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "is_boost_mode",
+      "py": [
+        "Entry.is_boost_mode()"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "is_current_device_type",
+      "py": [
+        "Entry.is_current_device_type(%1)"
+      ]
+    },
+    {
+      "category": "judgement",
+      "name": "is_touch_supported",
+      "py": [
+        "Entry.is_touch_supported()"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "show",
+      "py": [
+        "Entry.show()"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "hide",
+      "py": [
+        "Entry.hide()"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "dialog_time",
+      "py": [
+        "Entry.print_for_sec(%1, %2)"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "dialog",
+      "py": [
+        "Entry.print(%1)"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "remove_dialog",
+      "py": [
+        "Entry.clear_print()"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "change_to_some_shape",
+      "py": [
+        "Entry.change_shape(%1)"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "change_to_next_shape",
+      "py": [
+        "Entry.change_shape_to(%1)"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "add_effect_amount",
+      "py": [
+        "Entry.add_effect(%1, %2)"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "change_effect_amount",
+      "py": [
+        "Entry.set_effect(%1, %2)"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "erase_all_effects",
+      "py": [
+        "Entry.clear_effect()"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "change_scale_size",
+      "py": [
+        "Entry.add_size(%1)"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "set_scale_size",
+      "py": [
+        "Entry.set_size(%1)"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "flip_x",
+      "py": [
+        "Entry.flip_horizontal()"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "flip_y",
+      "py": [
+        "Entry.flip_vertical()"
+      ]
+    },
+    {
+      "category": "looks",
+      "name": "change_object_index",
+      "py": [
+        "Entry.send_layer_to(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "move_direction",
+      "py": [
+        "Entry.move_to_direction(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "bounce_wall",
+      "py": [
+        "Entry.bounce_on_edge()"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "move_x",
+      "py": [
+        "Entry.add_x(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "move_y",
+      "py": [
+        "Entry.add_y(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "move_xy_time",
+      "py": [
+        "Entry.add_xy_for_sec(%2, %3, %1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "locate_x",
+      "py": [
+        "Entry.set_x(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "locate_y",
+      "py": [
+        "Entry.set_y(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "locate_xy",
+      "py": [
+        "Entry.set_xy(%1, %2)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "locate_xy_time",
+      "py": [
+        "Entry.set_xy_for_sec(%2, %3, %1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "locate",
+      "py": [
+        "Entry.move_to(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "locate_object_time",
+      "py": [
+        "Entry.move_to_for_sec(%2, %1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "rotate_relative",
+      "py": [
+        "Entry.add_rotation(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "direction_relative",
+      "py": [
+        "Entry.add_direction(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "rotate_by_time",
+      "py": [
+        "Entry.add_rotation_for_sec(%2, %1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "direction_relative_duration",
+      "py": [
+        "Entry.add_direction_for_sec(%2, %1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "rotate_absolute",
+      "py": [
+        "Entry.set_rotation(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "direction_absolute",
+      "py": [
+        "Entry.set_direction(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "see_angle_object",
+      "py": [
+        "Entry.look_at(%1)"
+      ]
+    },
+    {
+      "category": "moving",
+      "name": "move_to_angle",
+      "py": [
+        "Entry.move_to_degree(%2, %1)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_something_with_block",
+      "py": [
+        "Entry.play_sound(%1)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_something_second_with_block",
+      "py": [
+        "Entry.play_sound_for_sec(%1, %2)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_from_to",
+      "py": [
+        "Entry.play_sound_from_to(%1, %2, %3)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_something_wait_with_block",
+      "py": [
+        "Entry.play_sound_and_wait(%1)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_something_second_wait_with_block",
+      "py": [
+        "Entry.play_sound_for_sec_and_wait(%1, %2)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_from_to_and_wait",
+      "py": [
+        "Entry.play_sound_from_to_and_wait(%1, %2, %3)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_volume_change",
+      "py": [
+        "Entry.add_sound_volume(%1)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_volume_set",
+      "py": [
+        "Entry.set_sound_volume(%1)"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "get_sound_speed",
+      "py": [
+        "Entry.stop_sound()"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_speed_change",
+      "py": [
+        "Entry.stop_sound()"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_speed_set",
+      "py": [
+        "Entry.stop_sound()"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "sound_silent_all",
+      "py": [
+        "Entry.stop_sound()"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "play_bgm",
+      "py": [
+        "Entry.stop_sound()"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "stop_bgm",
+      "py": [
+        "Entry.stop_sound()"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "get_sound_volume",
+      "py": [
+        "Entry.value_of_sound_volume()"
+      ]
+    },
+    {
+      "category": "sound",
+      "name": "get_sound_duration",
+      "py": [
+        "Entry.value_of_sound_length_of(%2)"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "when_run_button_click",
+      "py": [
+        "def when_start():"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "when_some_key_pressed",
+      "py": [
+        "def when_press_key(%2):"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "mouse_clicked",
+      "py": [
+        "def when_click_mouse_on():"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "mouse_click_cancled",
+      "py": [
+        "def when_click_mouse_off():"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "when_object_click",
+      "py": [
+        "def when_click_object_on():"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "when_object_click_canceled",
+      "py": [
+        "def when_click_object_off():"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "when_message_cast",
+      "py": [
+        "def when_get_signal(%2):"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "message_cast",
+      "py": [
+        "Entry.send_signal(%1)"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "message_cast_wait",
+      "py": [
+        "Entry.send_signal_wait(%1)"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "when_scene_start",
+      "py": [
+        "def when_start_scene():"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "start_scene",
+      "py": [
+        "Entry.start_scene(%1)"
+      ]
+    },
+    {
+      "category": "start",
+      "name": "start_neighbor_scene",
+      "py": [
+        "Entry.start_scene_of(%1)"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_read",
+      "py": [
+        "Entry.contents_of_textbox(%1)"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_write",
+      "py": [
+        "Entry.write_text(%1)"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_append",
+      "py": [
+        "Entry.append_text(%1)"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_prepend",
+      "py": [
+        "Entry.prepend_text(%1)"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_change_effect",
+      "py": [
+        "Entry.changeTextEffect(",
+        ", ",
+        ")"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_change_font",
+      "py": [
+        "Entry.text_change_font(",
+        ")"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_change_font_color",
+      "py": [
+        "Entry.text_change_font_color(",
+        ")"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_change_bg_color",
+      "py": [
+        "Entry.text_change_bg_color(",
+        ")"
+      ]
+    },
+    {
+      "category": "text",
+      "name": "text_flush",
+      "py": [
+        "Entry.clear_text()"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "ask_and_wait",
+      "py": [
+        "Entry.input(%1)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "get_canvas_input_value",
+      "py": [
+        "Entry.answer()"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "set_visible_answer",
+      "py": [
+        "Entry.answer_view(%1)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "get_variable",
+      "py": [
+        "%1"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "change_variable",
+      "py": [
+        "%1 += %2"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "set_variable",
+      "py": [
+        "%1 = %2"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "show_variable",
+      "py": [
+        "Entry.show_variable(%1)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "hide_variable",
+      "py": [
+        "Entry.hide_variable(%1)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "add_value_to_list",
+      "py": [
+        "%2.append(%1)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "remove_value_from_list",
+      "py": [
+        "%2.pop(%1)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "insert_value_to_list",
+      "py": [
+        "%2.insert(%3, %1)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "length_of_list",
+      "py": [
+        "len(%2)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "is_included_in_list",
+      "py": [
+        "%4 in %2"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "show_list",
+      "py": [
+        "Entry.show_list(%1)"
+      ]
+    },
+    {
+      "category": "variable",
+      "name": "hide_list",
+      "py": [
+        "Entry.hide_list(%1)"
+      ]
+    }
+  ]
+}
