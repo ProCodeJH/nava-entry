@@ -2,6 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { selectProvider } from './providers/index.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const CHEATSHEET = readFileSync(join(ROOT, 'cheatsheet.md'), 'utf8');
@@ -37,48 +38,15 @@ Python 코드만 \`\`\`python ... \`\`\` 블록 하나로 출력.
 
 코드 외 설명/잡담 금지. 자현이 복사해서 엔트리에 붙여넣을 수 있어야 함.`;
 
-const API_URL = 'https://api.deepseek.com/v1/chat/completions';
-const MODEL = process.env.DEEPSEEK_MODEL || 'deepseek-chat';
-
-function envKey() {
-  const k = process.env.DEEPSEEK_API_KEY;
-  if (!k) {
-    process.stderr.write('Error: DEEPSEEK_API_KEY 환경변수 미설정.\n');
-    process.stderr.write('PowerShell: [Environment]::SetEnvironmentVariable("DEEPSEEK_API_KEY", "sk-...", "User")\n');
-    process.exit(2);
-  }
-  return k;
-}
-
-async function callDeepSeek(query, opts = {}) {
-  const { temperature = 0.2, maxTokens = 4096 } = opts;
-  const res = await fetch(API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${envKey()}`,
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      messages: [
-        { role: 'system', content: SYSTEM_PROMPT },
-        { role: 'user', content: query },
-      ],
-      temperature,
-      max_tokens: maxTokens,
-      stream: false,
-    }),
+async function callProvider(query, opts = {}) {
+  const provider = selectProvider();
+  const result = await provider.generate({
+    system: SYSTEM_PROMPT,
+    user: query,
+    temperature: opts.temperature ?? 0.2,
+    maxTokens: opts.maxTokens ?? 4096,
   });
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`DeepSeek API ${res.status}: ${err.slice(0, 300)}`);
-  }
-  const data = await res.json();
-  return {
-    text: data.choices?.[0]?.message?.content || '',
-    usage: data.usage,
-    model: data.model,
-  };
+  return result;
 }
 
 function extractCode(text) {
@@ -95,7 +63,7 @@ async function main() {
     else if (a === '--raw') flags.raw = true;
     else if (a === '--copy') flags.copy = true;
     else if (a === '-h' || a === '--help') {
-      process.stdout.write(`nava-entry — 엔트리 파이썬 코드 생성기 (DeepSeek V3)
+      process.stdout.write(`nava-entry — 엔트리 파이썬 코드 생성기 (Gemini Flash 2.0 / DeepSeek V3)
 
 사용법:
   nava-entry "<게임 아이디어>"      # 코드 출력
@@ -105,12 +73,14 @@ async function main() {
 
 예시:
   nava-entry "벽돌깨기 게임"
-  nava-entry "마우스 따라가는 강아지"
-  nava-entry "키보드로 우주선 조종"
+  nava-entry "플래피 버드"
+  nava-entry "좀비 슈팅 게임"
+  nava-entry "스네이크 게임"
 
-환경변수:
-  DEEPSEEK_API_KEY  필수
-  DEEPSEEK_MODEL    선택 (기본: deepseek-chat = V3)
+환경변수 (provider auto-select, Gemini 우선):
+  GEMINI_API_KEY     무료 (https://aistudio.google.com/apikey)
+  DEEPSEEK_API_KEY   유료 ($0.14/1M, prompt caching)
+  NAVA_ENTRY_PROVIDER=gemini|deepseek  override
 `);
       process.exit(0);
     } else queryParts.push(a);
@@ -122,9 +92,8 @@ async function main() {
     process.exit(2);
   }
 
-  const t0 = Date.now();
-  const result = await callDeepSeek(query);
-  const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+  const result = await callProvider(query);
+  const elapsed = (result.elapsedMs / 1000).toFixed(1);
 
   if (flags.json) {
     process.stdout.write(JSON.stringify(result, null, 2) + '\n');
@@ -137,16 +106,14 @@ async function main() {
     process.stdout.write(code + '\n');
   } else {
     const u = result.usage || {};
-    const cacheHit = u.prompt_cache_hit_tokens || 0;
-    const cacheMiss = u.prompt_cache_miss_tokens || 0;
-    const cached = cacheHit > 0 ? ` (cache hit ${cacheHit})` : '';
-    process.stdout.write(`\n${'═'.repeat(60)}\n`);
-    process.stdout.write(`🦋 nava-entry — "${query}"\n`);
-    process.stdout.write(`${'═'.repeat(60)}\n`);
-    process.stdout.write(`⏱ ${elapsed}s | tokens in=${u.prompt_tokens || 0}${cached} out=${u.completion_tokens || 0}\n\n`);
+    const cached = u.cached_tokens > 0 ? ` (cache ${u.cached_tokens})` : '';
+    process.stdout.write(`\n${'─'.repeat(60)}\n`);
+    process.stdout.write(`nava-entry [${result.provider}/${result.model}] — "${query}"\n`);
+    process.stdout.write(`${'─'.repeat(60)}\n`);
+    process.stdout.write(`${elapsed}s | in=${u.input_tokens}${cached} out=${u.output_tokens}\n\n`);
     process.stdout.write(code + '\n');
     process.stdout.write(`\n${'─'.repeat(60)}\n`);
-    process.stdout.write('💡 위 코드 복사 → 엔트리 → 텍스트 코딩 (Python) → 붙여넣기\n');
+    process.stdout.write('위 코드 복사 → 엔트리 → 텍스트 코딩 (Python) → 붙여넣기\n');
   }
 
   if (flags.copy && process.platform === 'win32') {

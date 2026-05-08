@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "description": "엔트리 학원 학생 인기/트렌디 게임 10개 — Phase 1 정확도 검증셋",
+  "categories": {
+    "action": "키보드/마우스 빠른 반응",
+    "puzzle": "논리/순서",
+    "endless": "무한 진행",
+    "shooter": "발사 + 적",
+    "platformer": "점프 + 장애물",
+    "casual": "단순 클릭/탭"
+  },
+  "games": [
+    {
+      "id": "flappy-bird",
+      "name": "플래피 버드",
+      "category": "endless",
+      "prompt": "플래피 버드처럼 스페이스바를 누르면 점프하고 중력으로 떨어지는 새. 위아래에서 파이프 장애물이 왼쪽으로 흘러옴. 부딪히면 게임 끝.",
+      "must_use": ["when_press_key(\"space\")", "Entry.add_y", "create_clone", "Entry.move_to_direction"],
+      "must_not_use": ["import", "time.sleep", "print", "class"],
+      "expected_handlers": ["when_start", "when_press_key", "when_make_clone"]
+    },
+    {
+      "id": "snake",
+      "name": "스네이크 게임",
+      "category": "puzzle",
+      "prompt": "방향키로 뱀을 움직여 사과를 먹으면 꼬리가 늘어나고 점수가 1 증가. 자기 꼬리나 벽에 부딪히면 끝.",
+      "must_use": ["when_press_key", "Entry.set_direction", "Entry.touch_wall", "Entry.touch_object"],
+      "must_not_use": ["import", "class", "with"],
+      "expected_handlers": ["when_start", "when_press_key"]
+    },
+    {
+      "id": "zombie-shooter",
+      "name": "좀비 슈팅",
+      "category": "shooter",
+      "prompt": "마우스로 조준하고 클릭하면 총알이 발사. 좀비가 위에서 무작위로 내려옴. 좀비를 맞추면 점수 1 증가, 좀비가 아래 끝에 닿으면 체력 1 감소. 체력 0이면 끝.",
+      "must_use": ["when_click_mouse_on", "create_clone", "Entry.move_to_direction", "Entry.touch_object"],
+      "expected_handlers": ["when_start", "when_click_mouse_on", "when_make_clone"]
+    },
+    {
+      "id": "clicker",
+      "name": "클리커 게임",
+      "category": "casual",
+      "prompt": "오브젝트를 클릭할 때마다 점수 1 증가. 점수가 10이 될 때마다 자동으로 점수가 1초당 1씩 증가하는 보너스 활성화.",
+      "must_use": ["when_click_object_on", "Entry.wait_for_sec", "while True"],
+      "expected_handlers": ["when_start", "when_click_object_on"]
+    },
+    {
+      "id": "maze",
+      "name": "미로 탈출",
+      "category": "puzzle",
+      "prompt": "방향키로 캐릭터를 움직여 미로의 출구(목표 오브젝트)에 도달. 벽에 부딪히면 시작 위치로. 출구에 닿으면 클리어 메시지.",
+      "must_use": ["when_press_key", "Entry.add_x", "Entry.add_y", "Entry.touch_object", "Entry.set_xy", "Entry.print"],
+      "expected_handlers": ["when_start", "when_press_key"]
+    },
+    {
+      "id": "endless-runner",
+      "name": "끝없는 달리기",
+      "category": "endless",
+      "prompt": "캐릭터는 자동으로 오른쪽으로 달림 (배경이 왼쪽으로 스크롤). 스페이스바 누르면 점프. 장애물이 무작위로 등장. 부딪히면 끝.",
+      "must_use": ["when_start", "when_press_key(\"space\")", "Entry.add_y", "create_clone", "while True"],
+      "expected_handlers": ["when_start", "when_press_key", "when_make_clone"]
+    },
+    {
+      "id": "pong",
+      "name": "퐁 (탁구)",
+      "category": "action",
+      "prompt": "왼쪽 패들은 W/S 키로, 오른쪽 패들은 위/아래 화살표로 위아래 이동. 공이 양쪽으로 튀고 패들에 맞으면 반사. 패들 못 맞추면 상대 점수.",
+      "must_use": ["when_press_key", "Entry.add_y", "Entry.move_to_direction", "Entry.bounce_on_edge", "Entry.touch_object"],
+      "expected_handlers": ["when_start", "when_press_key"]
+    },
+    {
+      "id": "brick-breaker",
+      "name": "벽돌깨기",
+      "category": "action",
+      "prompt": "공이 화면에서 튐. 아래 패들은 좌우 화살표로 이동. 위쪽에 벽돌이 여러 줄. 공이 벽돌에 닿으면 벽돌 사라지고 점수 증가. 모든 벽돌 부수면 클리어, 공이 아래로 떨어지면 끝.",
+      "must_use": ["when_press_key", "Entry.bounce_on_edge", "Entry.touch_object", "create_clone", "Entry.send_signal"],
+      "expected_handlers": ["when_start", "when_press_key", "when_make_clone", "when_get_signal"]
+    },
+    {
+      "id": "catch-falling",
+      "name": "떨어지는 물건 받기",
+      "category": "casual",
+      "prompt": "위에서 사과/별이 무작위 위치에서 떨어짐. 아래 바구니를 좌우 화살표로 이동해서 받음. 받으면 점수 +1, 놓치면 체력 -1.",
+      "must_use": ["when_press_key", "Entry.add_x", "create_clone", "Entry.touch_object", "Entry.wait_for_sec"],
+      "expected_handlers": ["when_start", "when_press_key", "when_make_clone"]
+    },
+    {
+      "id": "tank-battle",
+      "name": "탱크 배틀",
+      "category": "shooter",
+      "prompt": "WASD로 탱크 이동, 스페이스바로 포탄 발사. 적 탱크가 자동 이동하며 발사. 포탄 맞으면 체력 -1. 체력 0이면 끝.",
+      "must_use": ["when_press_key", "Entry.add_x", "Entry.add_y", "create_clone", "Entry.move_to_direction"],
+      "expected_handlers": ["when_start", "when_press_key", "when_make_clone"]
+    }
+  ]
+}
